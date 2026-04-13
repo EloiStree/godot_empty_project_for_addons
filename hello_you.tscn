@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dlndq7mw5a706"]
+
+[ext_resource type="Script" uid="uid://d05hpgbshoets" path="res://hello_world_rotation.gd" id="1_pbk8r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2y5qk"]
+
+[sub_resource type="Environment" id="Environment_pbk8r"]
+ambient_light_source = 2
+
+[node name="Node3D" type="Node3D" unique_id=1822165889]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=859801481 node_paths=PackedStringArray("to_rotate")]
+transform = Transform3D(0.7569152, 0.6535131, 0, -0.55654895, 0.6446089, -0.5241494, -0.3425385, 0.39673668, 0.85162634, 0, 1.0303727, 0)
+mesh = SubResource("BoxMesh_2y5qk")
+script = ExtResource("1_pbk8r")
+to_rotate = NodePath(".")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1022546516]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=2053637717]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "Hello You
+{Go to the ReadMe.md}"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=355945106]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.59607846)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2002585451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0448627, 1.3646761)
+environment = SubResource("Environment_pbk8r")
