@@ -36,7 +36,9 @@ jobs:
           mv {.,}* ../${{ github.event.repository.name }}_temp/addons/${{ github.event.repository.name }}
           mv ../${{ github.event.repository.name }}_temp/addons ../${{ github.event.repository.name }}
           
+          
           cd ..
+
 
           git clone https://github.com/EloiStree/godot_empty_project_for_addons.git godot_empty_project_temp
           echo -e "${{ github.event.repository.html_url }}" > godot_empty_project_temp/git_source.md
@@ -50,6 +52,8 @@ jobs:
           cp -r godot_empty_project_temp/. ${{ github.event.repository.name }}/
           rm -rf godot_empty_project_temp
 
+          find "${{ github.event.repository.name }}/" -type d -name ".github" -exec rm -rf {} +
+         
 
           zip -r ${{ github.event.repository.name }}.zip ${{ github.event.repository.name }}
     
