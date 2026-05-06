@@ -29,22 +29,26 @@ jobs:
         run: |
           [ -d .git ] && rm -r .git/
           [ -d docs ] && rm -r docs
+          [ -f README.md ] && rm README.md
           find . -name "*.blend" -type f -delete
           find . -name "*.blend.import" -type f -delete
+
+          echo -e "${{ github.event.repository.html_url }}" > git_source.md
+          echo -e "[InternetShortcut]\nURL=${{ github.event.repository.html_url }}" > git_source.url
+          echo -e "[InternetShortcut]\nURL=https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/releases/latest/download/${{ github.event.repository.name }}.zip\n" > download_latest.url
+
 
           mkdir -p ../${{ github.event.repository.name }}_temp/addons/${{ github.event.repository.name }}
           mv {.,}* ../${{ github.event.repository.name }}_temp/addons/${{ github.event.repository.name }}
           mv ../${{ github.event.repository.name }}_temp/addons ../${{ github.event.repository.name }}
           
           
+          
           cd ..
 
 
           git clone https://github.com/EloiStree/godot_empty_project_for_addons.git godot_empty_project_temp
-          echo -e "${{ github.event.repository.html_url }}" > godot_empty_project_temp/git_source.md
-          echo -e "[InternetShortcut]\nURL=${{ github.event.repository.html_url }}" > godot_empty_project_temp/git_source.url
-          echo -e "[InternetShortcut]\nURL=https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/releases/latest/download/${{ github.event.repository.name }}.zip\n" > godot_empty_project_temp/download_latest.url
-          
+          [ -f godot_empty_project_temp/README.md ] && rm godot_empty_project_temp/README.md          
           [ -d godot_empty_project_temp/.git ] && rm -rf godot_empty_project_temp/.git
           [ -d godot_empty_project_temp/.github ] && rm -rf godot_empty_project_temp/.github
           
