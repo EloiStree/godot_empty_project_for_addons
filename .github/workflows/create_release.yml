@@ -48,7 +48,7 @@ jobs:
           cd ..
 
 
-          git clone https://github.com/EloiStree/godot_empty_project_for_addons.git godot_empty_project_temp
+          git clone --recursive https://github.com/EloiStree/godot_empty_project_for_addons.git godot_empty_project_temp
           [ -f godot_empty_project_temp/README.md ] && rm godot_empty_project_temp/README.md          
           [ -d godot_empty_project_temp/.git ] && rm -rf godot_empty_project_temp/.git
           [ -d godot_empty_project_temp/.github ] && rm -rf godot_empty_project_temp/.github
