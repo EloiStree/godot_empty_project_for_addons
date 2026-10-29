@@ -10,8 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Godot Addons Warp"
-config/features=PackedStringArray("4.6", "Mobile")
+config/name="Godot Addons Warpper"
+config/description="I am just a project warpping around a addons by the help of the GitHub Action System."
+config/features=PackedStringArray("4.7", "Mobile")
 
 [physics]
 
